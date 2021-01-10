@@ -6,11 +6,11 @@
 import scrapy
 
 
-class PriceScrapingItem(scrapy.Item):
+class ProductItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    product = Field()
-    price = Field()
-    category = Field()
-    stock = Field()
+    product = scrapy.Field()
+    price = scrapy.Field()
+    category = scrapy.Field()
+    stock = scrapy.Field()
     pass
