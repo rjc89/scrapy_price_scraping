@@ -6,7 +6,7 @@ class price_spider(scrapy.Spider):
    def parse(self, response):
        item_loader = ItemLoader(item=ProductItem(), response=response)
        item_loader.default_input_processor = MapCompose(remove_tags)
-
+#
        item_loader.add_css("product", "a[data-track='title']")
     #    item_loader.add_css("price", "span[itemprop=price]")
     #    item_loader.add_css("stock", "span[itemprop=’stock’]")
