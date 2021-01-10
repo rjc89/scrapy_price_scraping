@@ -1,5 +1,5 @@
 import scrapy
-from price_scraping.items import ProductItem
+from price_scraping.items import *
 from scrapy.loader import ItemLoader
 from itemloaders.processors import TakeFirst, MapCompose, Join
 from scrapy.utils.markup import remove_tags
