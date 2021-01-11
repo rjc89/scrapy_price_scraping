@@ -6,16 +6,20 @@ from scrapy.utils.markup import remove_tags
 
 class Ecommerce(scrapy.Spider):
    name = "ecommerce"
-   allowed_domains = ['www.ebuyer.com']
+   #allowed_domains = ['www.ebuyer.com']
    start_urls = ["https://www.ebuyer.com/store/Computer/cat/Monitors"]
 
    def parse(self, response):
-      l = ItemLoader(item=ProductItem(), response=response)
-      item_loader.default_input_processor = MapCompose(remove_tags)
+      for Prod in response.xpath("//p[@class='drop-product-title']"):
+         print('************', Prod)
+         l = ItemLoader(item=ProductItem(), response=response)
+         #l.default_input_processor = MapCompose(remove_tags)
 
-      l.add_xpath("product", '//p[@class="drop-product-title"]')
-      #  #item_loader.add_css("price", "data-product-price")
-      #  l.add_xpath('site_title', '//title/text()')
-      l.add_xpath('link', '//a/@href')
+         l.add_xpath("product", "//p[@class='drop-product-title']")
+      # l.add_css("price", "data-product-price")
 
-      return l.load_item()
+      #   //div[contains(@class,"item-div")]
+      # l.add_xpath('site_title', '//title/text()')
+         l.add_xpath('link', '//a/@href')
+         # l.add_xpath('product', '')
+         return l.load_item()
