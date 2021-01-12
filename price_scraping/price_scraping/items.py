@@ -1,15 +1,14 @@
-# Define here the models for your scraped items
-#
-# See documentation in:
-# https://docs.scrapy.org/en/latest/topics/items.html
+# # Define here the models for your scraped items
+# #
+# # See documentation in:
+# # https://docs.scrapy.org/en/latest/topics/items.html
 
-import scrapy
+from scrapy.item import Item, Field
 
-class ProductItem(scrapy.Item):
+class ProductItem(Item):
     # define the fields for your item here like:
-    # name = scrapy.Field()
-    product = scrapy.Field()
-    price = scrapy.Field()
-    category = scrapy.Field()
-    stock = scrapy.Field()
-    pass
+    product = Field()
+    #price = Field()
+    # site_title = Field()
+    #links = Field()
+    #pass
